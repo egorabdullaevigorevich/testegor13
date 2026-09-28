@@ -3,343 +3,234 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CloudNext — Новая эра облачных экосистем</title>
-    <!-- Иконки и шрифт премиум-класса -->
-    <link rel="stylesheet" href="https://cloudflare.com">
-    <link href="https://googleapis.com" rel="stylesheet">
-    
+    <title>Современный сайт</title>
     <style>
+        /* Общие стили и переменные */
         :root {
-            --bg: #030712;
-            --card-bg: rgba(17, 24, 39, 0.7);
-            --border: rgba(255, 255, 255, 0.08);
-            --primary: #6366f1; /* Индиго неон */
-            --accent: #22d3ee;  /* Кислотный циан */
-            --text-main: #f3f4f6;
-            --text-muted: #9ca3af;
+            --bg-color: #f8f9fa;
+            --text-color: #212529;
+            --primary-color: #4f46e5;
+            --primary-hover: #4338ca;
+            --card-bg: #ffffff;
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
         }
 
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg);
-            color: var(--text-main);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             line-height: 1.6;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
         }
 
-        /* Декоративные размытые неоновые сферы на фоне */
-        .glow-sphere {
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(0,0,0,0) 70%);
-            filter: blur(60px);
-            z-index: -1;
-            pointer-events: none;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
-        .sphere-1 { top: -100px; right: -100px; }
-        .sphere-2 { top: 600px; left: -200px; background: radial-gradient(circle, rgba(34, 211, 238, 0.1) 0%, rgba(0,0,0,0) 70%); }
 
-        /* Навигационная панель (Стеклянный эффект) */
+        /* Шапка сайта */
         header {
-            position: fixed;
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
             top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(3, 7, 18, 0.7);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid var(--border);
-            z-index: 1000;
+            z-index: 100;
+        }
+
+        .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.2rem 8%;
+            height: 70px;
         }
 
         .logo {
-            font-size: 1.6rem;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            background: linear-gradient(to right, #fff, var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-        }
-        .logo i {
-            -webkit-text-fill-color: initial;
-            color: var(--primary);
-        }
-
-        nav {
-            display: flex;
-            gap: 2.5rem;
-        }
-
-        nav a {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
             text-decoration: none;
-            color: var(--text-muted);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
             font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s, transform 0.2s;
+            transition: var(--transition);
         }
 
-        nav a:hover {
-            color: var(--text-main);
+        .nav-links a:hover {
+            color: var(--primary-color);
         }
 
-        .cta-btn {
-            background: linear-gradient(135deg, var(--primary), #4f46e5);
-            color: #fff;
-            padding: 0.7rem 1.4rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
-            transition: all 0.3s;
-        }
-
-        .cta-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(99, 102, 241, 0.5);
-        }
-
-        /* Главный экран (Hero) */
+        /* Главный баннер (Hero) */
         .hero {
-            padding: 11rem 8% 7rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            padding: 80px 0;
             text-align: center;
-            position: relative;
-        }
-
-        .badge {
-            background: rgba(99, 102, 241, 0.1);
-            border: 1px solid rgba(99, 102, 241, 0.3);
-            color: #a5b4fc;
-            padding: 0.4rem 1.2rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            letter-spacing: 0.5px;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
+            background: linear-gradient(135deg, #e0e7ff 0%, #e0f2fe 100%);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
         .hero h1 {
-            font-size: 4rem;
+            font-size: 48px;
             font-weight: 800;
-            line-height: 1.15;
-            letter-spacing: -1px;
-            max-width: 900px;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(to bottom, #ffffff 40%, #9ca3af 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero h1 span {
-            background: linear-gradient(to right, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            line-height: 1.2;
         }
 
         .hero p {
-            color: var(--text-muted);
-            font-size: 1.2rem;
-            max-width: 650px;
-            margin-bottom: 3rem;
-            font-weight: 400;
+            font-size: 20px;
+            color: #4b5563;
+            max-width: 600px;
+            margin: 0 auto 30px;
         }
 
-        .hero-actions {
-            display: flex;
-            gap: 1.2rem;
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--border);
-            color: var(--text-main);
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 28px;
+            border-radius: var(--border-radius);
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
         }
 
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: var(--text-muted);
+        .btn:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
         }
 
-        /* Секция контента / Сетка */
-        .section {
-            padding: 7rem 8%;
-            position: relative;
+        /* Секция с карточками (Преимущества) */
+        .features {
+            padding: 80px 0;
         }
 
-        .section-header {
+        .section-title {
             text-align: center;
-            margin-bottom: 5rem;
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            margin-bottom: 1rem;
-        }
-
-        .section-header p {
-            color: var(--text-muted);
-            font-size: 1.05rem;
-            max-width: 500px;
-            margin: 0 auto;
+            font-size: 32px;
+            margin-bottom: 40px;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
 
-        /* Карточки премиум-вида с подсветкой при наведении */
         .card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            padding: 3rem 2.5rem;
-            border-radius: 24px;
-            backdrop-filter: blur(10px);
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s, box-shadow 0.4s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(135deg, rgba(99,102,241,0.05) 0%, rgba(0,0,0,0) 50%);
-            opacity: 0;
-            transition: opacity 0.4s;
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
         }
 
         .card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(99, 102, 241, 0.3);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .card:hover::before {
-            opacity: 1;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
         }
 
         .card-icon {
-            width: 60px;
-            height: 60px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: var(--accent);
-            margin-bottom: 2rem;
-            transition: all 0.3s;
-        }
-
-        .card:hover .card-icon {
-            color: #fff;
-            background: var(--primary);
-            border-color: var(--primary);
-            box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+            font-size: 40px;
+            margin-bottom: 15px;
         }
 
         .card h3 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            letter-spacing: -0.3px;
+            margin-bottom: 10px;
+            font-size: 20px;
         }
 
         .card p {
-            color: var(--text-muted);
-            font-size: 0.98rem;
-            line-height: 1.7;
-        }
-
-        /* Интерактивные Тарифы (Добавлено для крутизны) */
-        .pricing-card {
-            text-align: center;
-            border: 1px solid var(--border);
-        }
-        
-        .pricing-card.popular {
-            border-color: var(--primary);
-            background: linear-gradient(180deg, rgba(99, 102, 241, 0.08) 0%, rgba(17, 24, 39, 0.7) 100%);
-        }
-
-        .price {
-            font-size: 3rem;
-            font-weight: 800;
-            color: #fff;
-            margin: 1.5rem 0 0.5rem;
-        }
-        
-        .price span {
-            font-size: 1rem;
-            color: var(--text-muted);
-            font-weight: 400;
+            color: #6b7280;
         }
 
         /* Подвал */
         footer {
-            border-top: 1px solid var(--border);
-            padding: 3rem 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            background: #020613;
+            background-color: #1f2937;
+            color: #9ca3af;
+            padding: 40px 0;
+            text-align: center;
+            margin-top: auto;
         }
 
-        .socials {
-            display: flex;
-            gap: 1.5rem;
+        /* Адаптивность для мобильных */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 36px; }
+            .hero p { font-size: 18px; }
+            .nav-links { display: none; } /* Для полноценного мобильного меню нужен JS, это базовый вариант */
         }
+    </style>
+</head>
+<body>
 
-        .socials a {
-            color: var(--text-muted);
-            font-size: 1.2rem;
-            transition: color 0.3s;
-        }
+    <!-- Шапка -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">МойСайт</a>
+            <ul class="nav-links">
+                <li><a href="#features">Главная</a></li>
+                <li><a href="#features">Преимущества</a></li>
+                <li><a href="#footer">Контакты</a></li>
+            </ul>
+        </div>
+    </header>
 
-        .socials a:hover {
-            color: var(--accent);
-        }
+    <!-- Главный блок -->
+    <section class="hero">
+        <div class="container">
+            <h1>Создавайте будущее вместе с нами</h1>
+            <p>Простой, чистый и адаптивный шаблон для вашего стартапа, блога или портфолио.</p>
+            <a href="#features" class="btn">Начать работу</a>
+        </div>
+    </section>
 
-        /* Адаптивный дизайн */
-        @media (max-width: 968px) {
-            .hero h1 { font-size: 2.8rem; }
-            header { padding: 1.2rem 5%; }
-            .section { padding: 5rem 5%; }
-            footer { flex-direction: column; gap: 1.5rem; text-align: center; }
-        }
+    <!-- Секция преимуществ -->
+    <main class="container features" id="features">
+        <h2 class="section-title">Почему выбирают нас</h2>
+        <div class="grid">
+            <!-- Карточка 1 -->
+            <div class="card">
+                <div class="card-icon">⚡</div>
+                <h3>Высокая скорость</h3>
+                <p>Сайт оптимизирован для мгновенной загрузки на любых устройствах и типах подключения.</p>
+            </div>
+            <!-- Карточка 2 -->
+            <div class="card">
+                <div class="card-icon">📱</div>
+                <h3>Адаптивный дизайн</h3>
+                <p>Интерфейс идеально подстраивается под экраны смартфонов, планшетов и компьютеров.</p>
+            </div>
+            <!-- Карточка 3 -->
+            <div class="card">
+                <div class="card-icon">🎨</div>
+                <h3>Современный стиль</h3>
+                <p>Минималистичный дизайн с приятными шрифтами, тенями и плавными анимациями.</p>
+            </div>
+        </div>
+    </main>
 
+    <!-- Подвал -->
+    <footer id="footer">
+        <div class="container">
+            <p>&copy; 2026 МойСайт. Все права защищены.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
