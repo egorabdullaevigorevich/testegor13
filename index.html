@@ -1,11 +1,13 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Современный сайт</title>
+
+    <title>МойСайт — Современный сайт</title>
+
     <style>
-        /* Общие стили и переменные */
         :root {
             --bg-color: #f8f9fa;
             --text-color: #212529;
@@ -23,7 +25,8 @@
         }
 
         body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                'Segoe UI', Roboto, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.6;
@@ -35,10 +38,11 @@
             padding: 0 20px;
         }
 
-        /* Шапка сайта */
+        /* Шапка */
+
         header {
             background-color: var(--card-bg);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -75,11 +79,16 @@
             color: var(--primary-color);
         }
 
-        /* Главный баннер (Hero) */
+        /* Главный баннер */
+
         .hero {
             padding: 80px 0;
             text-align: center;
-            background: linear-gradient(135deg, #e0e7ff 0%, #e0f2fe 100%);
+            background: linear-gradient(
+                135deg,
+                #e0e7ff 0%,
+                #e0f2fe 100%
+            );
             border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
@@ -115,7 +124,8 @@
             transform: translateY(-2px);
         }
 
-        /* Секция с карточками (Преимущества) */
+        /* Преимущества */
+
         .features {
             padding: 80px 0;
         }
@@ -128,7 +138,10 @@
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(300px, 1fr)
+            );
             gap: 30px;
         }
 
@@ -136,14 +149,14 @@
             background-color: var(--card-bg);
             padding: 30px;
             border-radius: var(--border-radius);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            border: 1px solid rgba(0,0,0,0.05);
             transition: var(--transition);
         }
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
         }
 
         .card-icon {
@@ -160,77 +173,602 @@
             color: #6b7280;
         }
 
+        /* Погода */
+
+        .weather {
+            padding: 80px 0;
+            background: linear-gradient(
+                135deg,
+                #e0e7ff,
+                #e0f2fe
+            );
+        }
+
+        .weather-card {
+            max-width: 550px;
+            margin: 0 auto;
+            padding: 35px;
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.07);
+            text-align: center;
+        }
+
+        .weather-search {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .weather-search input {
+            flex: 1;
+            min-width: 0;
+            padding: 13px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .weather-search input:focus {
+            border-color: var(--primary-color);
+        }
+
+        .weather-search button {
+            padding: 12px 20px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .weather-search button:hover {
+            background: var(--primary-hover);
+        }
+
+        .weather-icon {
+            font-size: 75px;
+            margin: 15px 0;
+        }
+
+        .temperature {
+            font-size: 55px;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .weather-description {
+            color: #6b7280;
+            margin-bottom: 25px;
+            font-size: 18px;
+        }
+
+        .weather-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .weather-detail {
+            padding: 18px 10px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .weather-detail span {
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .weather-detail strong {
+            display: block;
+            font-size: 20px;
+            margin-top: 5px;
+        }
+
+        .weather-status {
+            margin-top: 20px;
+            color: #6b7280;
+            font-size: 13px;
+        }
+
+        .loading {
+            padding: 30px;
+            color: #6b7280;
+        }
+
         /* Подвал */
+
         footer {
             background-color: #1f2937;
             color: #9ca3af;
             padding: 40px 0;
             text-align: center;
-            margin-top: auto;
         }
 
-        /* Адаптивность для мобильных */
+        /* Мобильная версия */
+
         @media (max-width: 768px) {
-            .hero h1 { font-size: 36px; }
-            .hero p { font-size: 18px; }
-            .nav-links { display: none; } /* Для полноценного мобильного меню нужен JS, это базовый вариант */
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .weather-card {
+                padding: 20px;
+            }
+
+            .weather-search {
+                flex-direction: column;
+            }
+
+            .weather-search button {
+                width: 100%;
+            }
+
+            .section-title {
+                font-size: 27px;
+            }
         }
+
+        @media (max-width: 400px) {
+            .weather-details {
+                grid-template-columns: 1fr;
+            }
+        }
+
     </style>
 </head>
+
 <body>
 
     <!-- Шапка -->
+
     <header>
         <div class="container nav-container">
+
             <a href="#" class="logo">МойСайт</a>
+
             <ul class="nav-links">
-                <li><a href="#features">Главная</a></li>
+                <li><a href="#home">Главная</a></li>
                 <li><a href="#features">Преимущества</a></li>
+                <li><a href="#weather">Погода</a></li>
                 <li><a href="#footer">Контакты</a></li>
             </ul>
+
         </div>
     </header>
 
+
     <!-- Главный блок -->
-    <section class="hero">
+
+    <section class="hero" id="home">
+
         <div class="container">
+
             <h1>Создавайте будущее вместе с нами</h1>
-            <p>Простой, чистый и адаптивный шаблон для вашего стартапа, блога или портфолио.</p>
-            <a href="#features" class="btn">Начать работу</a>
+
+            <p>
+                Простой, чистый и адаптивный шаблон
+                для вашего стартапа, блога или портфолио.
+            </p>
+
+            <a href="#features" class="btn">
+                Начать работу
+            </a>
+
         </div>
+
     </section>
 
-    <!-- Секция преимуществ -->
+
+    <!-- Преимущества -->
+
     <main class="container features" id="features">
-        <h2 class="section-title">Почему выбирают нас</h2>
+
+        <h2 class="section-title">
+            Почему выбирают нас
+        </h2>
+
         <div class="grid">
-            <!-- Карточка 1 -->
+
             <div class="card">
+
                 <div class="card-icon">⚡</div>
+
                 <h3>Высокая скорость</h3>
-                <p>Сайт оптимизирован для мгновенной загрузки на любых устройствах и типах подключения.</p>
+
+                <p>
+                    Сайт оптимизирован для мгновенной загрузки
+                    на любых устройствах и типах подключения.
+                </p>
+
             </div>
-            <!-- Карточка 2 -->
+
+
             <div class="card">
+
                 <div class="card-icon">📱</div>
+
                 <h3>Адаптивный дизайн</h3>
-                <p>Интерфейс идеально подстраивается под экраны смартфонов, планшетов и компьютеров.</p>
+
+                <p>
+                    Интерфейс идеально подстраивается под экраны
+                    смартфонов, планшетов и компьютеров.
+                </p>
+
             </div>
-            <!-- Карточка 3 -->
+
+
             <div class="card">
+
                 <div class="card-icon">🎨</div>
+
                 <h3>Современный стиль</h3>
-                <p>Минималистичный дизайн с приятными шрифтами, тенями и плавными анимациями.</p>
+
+                <p>
+                    Минималистичный дизайн с приятными шрифтами,
+                    тенями и плавными анимациями.
+                </p>
+
             </div>
+
         </div>
+
     </main>
 
-    <!-- Подвал -->
-    <footer id="footer">
+
+    <!-- Погода -->
+
+    <section class="weather" id="weather">
+
         <div class="container">
-            <p>&copy; 2026 МойСайт. Все права защищены.</p>
+
+            <h2 class="section-title">
+                Погода в вашем городе
+            </h2>
+
+            <div class="weather-card">
+
+                <h2>Узнать погоду</h2>
+
+                <br>
+
+                <div class="weather-search">
+
+                    <input
+                        type="text"
+                        id="cityInput"
+                        placeholder="Введите город"
+                        value="Tashkent"
+                    >
+
+                    <button
+                        onclick="getWeather()"
+                        id="searchButton"
+                    >
+                        Найти
+                    </button>
+
+                </div>
+
+                <div id="weatherResult">
+
+                    <div class="loading">
+                        Загрузка погоды...
+                    </div>
+
+                </div>
+
+                <p
+                    class="weather-status"
+                    id="weatherStatus"
+                ></p>
+
+            </div>
+
         </div>
+
+    </section>
+
+
+    <!-- Подвал -->
+
+    <footer id="footer">
+
+        <div class="container">
+
+            <p>
+                &copy; 2026 МойСайт. Все права защищены.
+            </p>
+
+            <p style="margin-top: 10px; font-size: 13px;">
+                Данные о погоде предоставлены Open-Meteo
+            </p>
+
+        </div>
+
     </footer>
+
+
+    <!-- JavaScript и API погоды -->
+
+    <script>
+
+        // Описания погодных условий
+
+        const weatherTypes = {
+            0: ["☀️", "Ясно"],
+            1: ["🌤️", "Преимущественно ясно"],
+            2: ["⛅", "Переменная облачность"],
+            3: ["☁️", "Пасмурно"],
+
+            45: ["🌫️", "Туман"],
+            48: ["🌫️", "Изморозь"],
+
+            51: ["🌦️", "Лёгкая морось"],
+            53: ["🌦️", "Морось"],
+            55: ["🌧️", "Сильная морось"],
+
+            56: ["🌧️", "Ледяная морось"],
+            57: ["🌧️", "Сильная ледяная морось"],
+
+            61: ["🌧️", "Небольшой дождь"],
+            63: ["🌧️", "Дождь"],
+            65: ["🌧️", "Сильный дождь"],
+
+            66: ["🌧️", "Ледяной дождь"],
+            67: ["🌧️", "Сильный ледяной дождь"],
+
+            71: ["🌨️", "Небольшой снег"],
+            73: ["❄️", "Снег"],
+            75: ["❄️", "Сильный снег"],
+            77: ["❄️", "Снежные зёрна"],
+
+            80: ["🌦️", "Небольшой ливень"],
+            81: ["🌧️", "Ливень"],
+            82: ["⛈️", "Сильный ливень"],
+
+            85: ["🌨️", "Снегопад"],
+            86: ["❄️", "Сильный снегопад"],
+
+            95: ["⛈️", "Гроза"],
+            96: ["⛈️", "Гроза с градом"],
+            99: ["⛈️", "Сильная гроза с градом"]
+        };
+
+
+        // Главная функция получения погоды
+
+        async function getWeather() {
+
+            const cityInput =
+                document.getElementById("cityInput");
+
+            const result =
+                document.getElementById("weatherResult");
+
+            const status =
+                document.getElementById("weatherStatus");
+
+            const button =
+                document.getElementById("searchButton");
+
+            const city = cityInput.value.trim();
+
+            if (!city) {
+                status.textContent = "Введите название города!";
+                return;
+            }
+
+            result.innerHTML =
+                '<div class="loading">Загрузка...</div>';
+
+            status.textContent = "";
+            button.disabled = true;
+            button.textContent = "Поиск...";
+
+            try {
+
+                // 1. Поиск координат города
+
+                const geoUrl =
+                    `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(city)}&count=1&language=ru&format=json`;
+
+                const geoResponse = await fetch(geoUrl);
+
+                if (!geoResponse.ok) {
+                    throw new Error("Ошибка поиска города");
+                }
+
+                const geoData = await geoResponse.json();
+
+                if (!geoData.results ||
+                    geoData.results.length === 0) {
+
+                    throw new Error("Город не найден!");
+                }
+
+                const location = geoData.results[0];
+
+
+                // 2. Получение погоды по координатам
+
+                const weatherUrl =
+                    `https://api.open-meteo.com/v1/forecast?latitude=${location.latitude}&longitude=${location.longitude}&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,precipitation,weather_code,wind_speed_10m&timezone=auto`;
+
+                const weatherResponse =
+                    await fetch(weatherUrl);
+
+                if (!weatherResponse.ok) {
+                    throw new Error("Ошибка получения погоды");
+                }
+
+                const weatherData =
+                    await weatherResponse.json();
+
+                const weather = weatherData.current;
+
+
+                // 3. Определяем описание погоды
+
+                const weatherInfo =
+                    weatherTypes[weather.weather_code] ||
+                    ["🌡️", "Неизвестно"];
+
+                const icon = weatherInfo[0];
+                const description = weatherInfo[1];
+
+
+                // 4. Формируем HTML
+
+                result.innerHTML = `
+
+                    <h3>
+                        ${location.name},
+                        ${location.country}
+                    </h3>
+
+                    <div class="weather-icon">
+                        ${icon}
+                    </div>
+
+                    <div class="temperature">
+                        ${Math.round(weather.temperature_2m)}°C
+                    </div>
+
+                    <p class="weather-description">
+                        ${description}
+                    </p>
+
+                    <div class="weather-details">
+
+                        <div class="weather-detail">
+
+                            <span>
+                                🌡️ Ощущается как
+                            </span>
+
+                            <strong>
+                                ${Math.round(weather.apparent_temperature)}°C
+                            </strong>
+
+                        </div>
+
+
+                        <div class="weather-detail">
+
+                            <span>
+                                💧 Влажность
+                            </span>
+
+                            <strong>
+                                ${weather.relative_humidity_2m}%
+                            </strong>
+
+                        </div>
+
+
+                        <div class="weather-detail">
+
+                            <span>
+                                💨 Скорость ветра
+                            </span>
+
+                            <strong>
+                                ${weather.wind_speed_10m} км/ч
+                            </strong>
+
+                        </div>
+
+
+                        <div class="weather-detail">
+
+                            <span>
+                                🌧️ Осадки
+                            </span>
+
+                            <strong>
+                                ${weather.precipitation} мм
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                `;
+
+
+                // 5. Время последнего обновления
+
+                const updateTime =
+                    new Date(weather.time).toLocaleString("ru-RU");
+
+                status.textContent =
+                    "Последнее обновление: " + updateTime;
+
+            }
+
+            catch (error) {
+
+                result.innerHTML = `
+
+                    <div class="weather-icon">
+                        ❌
+                    </div>
+
+                    <p>
+                        ${error.message}
+                    </p>
+
+                `;
+
+                status.textContent =
+                    "Не удалось получить данные. Проверьте интернет.";
+
+                console.error("Weather API error:", error);
+
+            }
+
+            finally {
+
+                button.disabled = false;
+                button.textContent = "Найти";
+
+            }
+
+        }
+
+
+        // Поиск по нажатию Enter
+
+        document
+            .getElementById("cityInput")
+            .addEventListener("keydown", function(event) {
+
+                if (event.key === "Enter") {
+                    getWeather();
+                }
+
+            });
+
+
+        // Автоматическая загрузка погоды в Ташкенте
+
+        getWeather();
+
+    </script>
 
 </body>
 </html>
