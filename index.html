@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мой сайт — Погода</title>
+    <title>PC STORE — Магазин компьютеров</title>
 
     <style>
         * {
@@ -15,91 +15,261 @@
 
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #74b9ff, #a29bfe);
-            min-height: 100vh;
-            color: #2d3436;
+            background: #f4f6f9;
+            color: #1e293b;
         }
 
+        /* Шапка */
         header {
-            background: rgba(255,255,255,0.2);
-            padding: 25px;
-            text-align: center;
+            background: #111827;
             color: white;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
-        header h1 {
-            font-size: 32px;
-            margin-bottom: 8px;
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #38bdf8;
         }
 
         nav {
-            background: rgba(0,0,0,0.15);
-            padding: 15px;
-            text-align: center;
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 15px;
             font-weight: bold;
         }
 
         nav a:hover {
-            text-decoration: underline;
+            color: #38bdf8;
         }
 
-        main {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 20px;
-        }
-
-        .welcome {
-            text-align: center;
+        .cart-button {
+            background: #2563eb;
             color: white;
-            margin-bottom: 35px;
+            padding: 12px 18px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
         }
 
-        .welcome h2 {
-            font-size: 30px;
-            margin-bottom: 10px;
+        /* Главный баннер */
+        .hero {
+            background: linear-gradient(135deg, #111827, #1d4ed8);
+            color: white;
+            padding: 70px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
         }
 
-        .weather-card {
-            background: white;
-            max-width: 550px;
-            margin: auto;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            text-align: center;
+        .hero-text {
+            max-width: 600px;
         }
 
-        .weather-card h2 {
-            margin-bottom: 10px;
-            color: #2d3436;
-        }
-
-        .city {
-            color: #636e72;
+        .hero h1 {
+            font-size: 48px;
             margin-bottom: 20px;
         }
 
+        .hero p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #dbeafe;
+        }
+
+        .hero button {
+            margin-top: 25px;
+            padding: 15px 25px;
+            background: #38bdf8;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .hero button:hover {
+            background: #0ea5e9;
+        }
+
+        .hero-icon {
+            font-size: 150px;
+        }
+
+        /* Общие секции */
+        section {
+            padding: 50px 8%;
+        }
+
+        .section-title {
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        /* Каталог */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+            transition: transform 0.2s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            background: #e2e8f0;
+        }
+
+        .product-content {
+            padding: 20px;
+        }
+
+        .product-content h3 {
+            margin-bottom: 12px;
+            font-size: 20px;
+        }
+
+        .product-content p {
+            color: #64748b;
+            line-height: 1.5;
+            min-height: 65px;
+        }
+
+        .price {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2563eb;
+            margin: 15px 0;
+        }
+
+        .buy-button {
+            width: 100%;
+            background: #2563eb;
+            color: white;
+            padding: 13px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .buy-button:hover {
+            background: #1d4ed8;
+        }
+
+        /* Корзина */
+        .cart-section {
+            background: #eaf2ff;
+        }
+
+        .cart-box {
+            max-width: 850px;
+            margin: auto;
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .cart-item button {
+            background: #ef4444;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .cart-total {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 25px;
+        }
+
+        .checkout-button {
+            margin-top: 20px;
+            background: #16a34a;
+            color: white;
+            padding: 15px;
+            border: none;
+            width: 100%;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .checkout-button:hover {
+            background: #15803d;
+        }
+
+        /* Погода */
+        .weather-section {
+            background: #111827;
+            color: white;
+        }
+
+        .weather-card {
+            max-width: 700px;
+            margin: auto;
+            background: linear-gradient(135deg, #2563eb, #38bdf8);
+            border-radius: 20px;
+            padding: 35px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .weather-city {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
         .weather-icon {
-            font-size: 65px;
+            font-size: 75px;
             margin: 15px 0;
         }
 
         .temperature {
-            font-size: 55px;
+            font-size: 60px;
             font-weight: bold;
-            color: #0984e3;
         }
 
         .description {
             font-size: 20px;
-            margin: 10px 0 25px;
+            margin: 15px 0 25px;
         }
 
         .weather-info {
@@ -109,59 +279,97 @@
         }
 
         .info-item {
-            background: #f1f5f9;
-            padding: 18px;
+            background: rgba(255,255,255,0.2);
+            padding: 20px;
             border-radius: 12px;
         }
 
         .info-item span {
             display: block;
-            color: #636e72;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .info-item strong {
-            font-size: 19px;
+            font-size: 20px;
         }
 
-        button {
+        .weather-button {
             margin-top: 25px;
             padding: 13px 25px;
+            background: white;
+            color: #2563eb;
             border: none;
             border-radius: 10px;
-            background: #0984e3;
-            color: white;
-            font-size: 16px;
             cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
         }
 
-        button:hover {
-            background: #076bb8;
+        .weather-button:hover {
+            background: #dbeafe;
         }
 
-        #status {
+        #weatherStatus {
             margin-top: 15px;
-            color: #636e72;
             font-size: 14px;
         }
 
-        footer {
+        /* О магазине */
+        .about {
             text-align: center;
-            padding: 25px;
-            color: white;
+            background: white;
         }
 
+        .about p {
+            max-width: 750px;
+            margin: auto;
+            font-size: 18px;
+            line-height: 1.7;
+            color: #64748b;
+        }
+
+        /* Подвал */
+        footer {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        /* Адаптивность */
         @media (max-width: 600px) {
+            header {
+                justify-content: center;
+                text-align: center;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .hero {
+                text-align: center;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 35px;
+            }
+
+            .hero-icon {
+                font-size: 100px;
+            }
+
             .weather-info {
                 grid-template-columns: 1fr;
             }
 
-            nav a {
-                margin: 0 7px;
+            .cart-item {
+                flex-wrap: wrap;
             }
 
-            .temperature {
-                font-size: 45px;
+            section {
+                padding: 35px 5%;
             }
         }
     </style>
@@ -169,36 +377,179 @@
 
 <body>
 
+    <!-- Шапка -->
     <header>
-        <h1>Мой сайт</h1>
-        <p>Добро пожаловать на мой сайт!</p>
+        <div class="logo">💻 PC STORE</div>
+
+        <nav>
+            <a href="#">Главная</a>
+            <a href="#catalog">Каталог</a>
+            <a href="#weather">Погода</a>
+            <a href="#about">О магазине</a>
+        </nav>
+
+        <button class="cart-button" onclick="scrollToCart()">
+            🛒 Корзина (<span id="cartCount">0</span>)
+        </button>
     </header>
 
-    <nav>
-        <a href="#">Главная</a>
-        <a href="#weather">Погода</a>
-        <a href="#about">О сайте</a>
-    </nav>
+    <!-- Главный баннер -->
+    <div class="hero">
+        <div class="hero-text">
+            <h1>Техника для твоих возможностей</h1>
 
-    <main>
-        <section class="welcome">
-            <h2>Узнай погоду прямо сейчас</h2>
-            <p>Актуальная информация о погоде в Ташкенте</p>
-        </section>
+            <p>
+                Покупай мощные компьютеры для игр, работы,
+                программирования и учёбы.
+                Найди свой идеальный компьютер в PC STORE!
+            </p>
 
-        <section class="weather-card" id="weather">
-            <h2>Погода сейчас</h2>
-            <p class="city">📍 Ташкент, Узбекистан</p>
+            <button onclick="scrollToCatalog()">
+                Смотреть каталог
+            </button>
+        </div>
 
-            <div class="weather-icon" id="weatherIcon">🌤️</div>
+        <div class="hero-icon">🖥️</div>
+    </div>
 
-            <div class="temperature" id="temperature">--°C</div>
+    <!-- Каталог -->
+    <section id="catalog">
+        <h2 class="section-title">Наш каталог</h2>
+
+        <div class="products">
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1587202372634-32705e3bf49c?auto=format&fit=crop&w=800&q=80"
+                     alt="Игровой компьютер">
+
+                <div class="product-content">
+                    <h3>Gaming PC RTX 4060</h3>
+
+                    <p>
+                        Intel Core i5, RTX 4060, 16 GB RAM,
+                        SSD 512 GB. Отлично подходит для игр.
+                    </p>
+
+                    <div class="price">8 500 000 сум</div>
+
+                    <button class="buy-button"
+                        onclick="addToCart('Gaming PC RTX 4060', 8500000)">
+                        Добавить в корзину
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1593640408182-31c2289c4b89?auto=format&fit=crop&w=800&q=80"
+                     alt="Компьютер для работы">
+
+                <div class="product-content">
+                    <h3>Office PC</h3>
+
+                    <p>
+                        Intel Core i3, 8 GB RAM, SSD 256 GB.
+                        Для офиса, учёбы и интернета.
+                    </p>
+
+                    <div class="price">3 500 000 сум</div>
+
+                    <button class="buy-button"
+                        onclick="addToCart('Office PC', 3500000)">
+                        Добавить в корзину
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1587831990711-23ca6441447b?auto=format&fit=crop&w=800&q=80"
+                     alt="Мощный компьютер">
+
+                <div class="product-content">
+                    <h3>Gaming PC RTX 4070</h3>
+
+                    <p>
+                        Intel Core i7, RTX 4070, 32 GB RAM,
+                        SSD 1 TB. Для современных игр.
+                    </p>
+
+                    <div class="price">14 000 000 сум</div>
+
+                    <button class="buy-button"
+                        onclick="addToCart('Gaming PC RTX 4070', 14000000)">
+                        Добавить в корзину
+                    </button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&w=800&q=80"
+                     alt="Компьютер для работы и игр">
+
+                <div class="product-content">
+                    <h3>Gaming PC RTX 3050</h3>
+
+                    <p>
+                        AMD Ryzen 5, RTX 3050, 16 GB RAM,
+                        SSD 512 GB. Хороший бюджетный вариант.
+                    </p>
+
+                    <div class="price">6 000 000 сум</div>
+
+                    <button class="buy-button"
+                        onclick="addToCart('Gaming PC RTX 3050', 6000000)">
+                        Добавить в корзину
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Корзина -->
+    <section class="cart-section" id="cart">
+        <h2 class="section-title">🛒 Корзина</h2>
+
+        <div class="cart-box">
+
+            <div id="cartItems">
+                <p>Корзина пока пуста.</p>
+            </div>
+
+            <div class="cart-total" id="cartTotal">
+                Итого: 0 сум
+            </div>
+
+            <button class="checkout-button" onclick="checkout()">
+                Оформить заказ
+            </button>
+
+        </div>
+    </section>
+
+    <!-- Погода -->
+    <section class="weather-section" id="weather">
+        <h2 class="section-title">Погода в Ташкенте</h2>
+
+        <div class="weather-card">
+
+            <div class="weather-city">
+                📍 Ташкент, Узбекистан
+            </div>
+
+            <div class="weather-icon" id="weatherIcon">
+                🌤️
+            </div>
+
+            <div class="temperature" id="temperature">
+                --°C
+            </div>
 
             <div class="description" id="description">
                 Загрузка погоды...
             </div>
 
             <div class="weather-info">
+
                 <div class="info-item">
                     <span>🌡️ Ощущается как</span>
                     <strong id="feelsLike">--°C</strong>
@@ -218,24 +569,170 @@
                     <span>🌧️ Осадки</span>
                     <strong id="precipitation">-- мм</strong>
                 </div>
+
             </div>
 
-            <button onclick="loadWeather()">Обновить погоду</button>
+            <button class="weather-button" onclick="loadWeather()">
+                Обновить погоду
+            </button>
 
-            <p id="status">Подключение к Open-Meteo...</p>
-        </section>
+            <p id="weatherStatus">
+                Подключение к Open-Meteo...
+            </p>
 
-        <section class="welcome" id="about" style="margin-top: 45px;">
-            <h2>О сайте</h2>
-            <p>Данные о погоде загружаются с помощью Open-Meteo API.</p>
-        </section>
-    </main>
+        </div>
+    </section>
 
+    <!-- О магазине -->
+    <section class="about" id="about">
+        <h2 class="section-title">О магазине</h2>
+
+        <p>
+            PC STORE — интернет-магазин компьютеров и комплектующих.
+            Мы предлагаем компьютеры для игр, работы, учёбы
+            и повседневного использования.
+            Здесь можно выбрать подходящую технику
+            и добавить её в корзину.
+        </p>
+    </section>
+
+    <!-- Подвал -->
     <footer>
-        <p>© 2026 Мой сайт | Погода предоставлена Open-Meteo</p>
+        <p>© 2026 PC STORE | Интернет-магазин компьютеров</p>
+        <p style="margin-top: 10px;">
+            Погода предоставлена Open-Meteo
+        </p>
     </footer>
 
     <script>
+
+        // ==========================
+        // КОРЗИНА
+        // ==========================
+
+        let cart = [];
+
+        function addToCart(name, price) {
+
+            const existingItem = cart.find(item => item.name === name);
+
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({
+                    name: name,
+                    price: price,
+                    quantity: 1
+                });
+            }
+
+            renderCart();
+        }
+
+        function removeFromCart(name) {
+
+            cart = cart.filter(item => item.name !== name);
+
+            renderCart();
+        }
+
+        function renderCart() {
+
+            const cartItems = document.getElementById("cartItems");
+            const cartCount = document.getElementById("cartCount");
+            const cartTotal = document.getElementById("cartTotal");
+
+            cartItems.innerHTML = "";
+
+            let total = 0;
+            let count = 0;
+
+            if (cart.length === 0) {
+                cartItems.innerHTML = "<p>Корзина пока пуста.</p>";
+            }
+
+            cart.forEach(item => {
+
+                total += item.price * item.quantity;
+                count += item.quantity;
+
+                const div = document.createElement("div");
+                div.className = "cart-item";
+
+                const productInfo = document.createElement("div");
+                const productName = document.createElement("strong");
+                const productPrice = document.createElement("p");
+
+                productName.textContent = item.name;
+                productPrice.textContent =
+                    formatPrice(item.price) + " сум × " + item.quantity;
+
+                productInfo.appendChild(productName);
+                productInfo.appendChild(productPrice);
+
+                const removeButton = document.createElement("button");
+                removeButton.textContent = "Удалить";
+                removeButton.onclick = () => removeFromCart(item.name);
+
+                div.appendChild(productInfo);
+                div.appendChild(removeButton);
+
+                cartItems.appendChild(div);
+            });
+
+            cartCount.textContent = count;
+            cartTotal.textContent = "Итого: " + formatPrice(total) + " сум";
+        }
+
+        function formatPrice(price) {
+            return price.toLocaleString("ru-RU");
+        }
+
+        function checkout() {
+
+            if (cart.length === 0) {
+                alert("Сначала добавьте товары в корзину!");
+                return;
+            }
+
+            let message = "Ваш заказ:\n\n";
+
+            cart.forEach(item => {
+                message += item.name + " x" + item.quantity +
+                    " — " + formatPrice(item.price * item.quantity) +
+                    " сум\n";
+            });
+
+            const total = cart.reduce(
+                (sum, item) => sum + item.price * item.quantity,
+                0
+            );
+
+            message += "\nИтого: " + formatPrice(total) + " сум";
+
+            alert(message + "\n\nСпасибо за покупку!");
+
+            cart = [];
+            renderCart();
+        }
+
+        function scrollToCart() {
+            document.getElementById("cart").scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+
+        function scrollToCatalog() {
+            document.getElementById("catalog").scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+
+
+        // ==========================
+        // ПОГОДА OPEN-METEO
+        // ==========================
+
         const API_URL =
             "https://api.open-meteo.com/v1/forecast" +
             "?latitude=41.2995" +
@@ -244,6 +741,7 @@
             "&timezone=Asia%2FTashkent";
 
         function getWeatherDescription(code) {
+
             const weather = {
                 0: ["Ясно", "☀️"],
                 1: ["Преимущественно ясно", "🌤️"],
@@ -272,11 +770,13 @@
         }
 
         async function loadWeather() {
-            const status = document.getElementById("status");
+
+            const status = document.getElementById("weatherStatus");
 
             status.textContent = "Загружаем данные...";
-            
+
             try {
+
                 const response = await fetch(API_URL);
 
                 if (!response.ok) {
@@ -315,21 +815,23 @@
                     new Date().toLocaleTimeString("ru-RU");
 
             } catch (error) {
+
                 console.error("Ошибка загрузки погоды:", error);
 
                 status.textContent =
-                    "Не удалось загрузить погоду. Проверьте интернет-соединение.";
+                    "Не удалось загрузить погоду. Проверьте интернет.";
 
                 document.getElementById("description").textContent =
                     "Ошибка загрузки данных";
             }
         }
 
-        // Загружаем погоду при открытии сайта
+        // Загрузка при открытии сайта
         loadWeather();
 
-        // Обновляем погоду каждые 10 минут
+        // Обновление погоды каждые 10 минут
         setInterval(loadWeather, 10 * 60 * 1000);
+
     </script>
 
 </body>
